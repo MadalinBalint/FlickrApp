@@ -1,9 +1,9 @@
-package com.mendelin.flickerapp.domain.api
+package com.mendelin.flickerapp.domain.remote
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.mendelin.flickerapp.BuildConfig
-import com.mendelin.flickerapp.data.FlickrDataSource
+import com.mendelin.flickerapp.data.remote.FlickrApi
 import okhttp3.Interceptor
 import okhttp3.MediaType
 import okhttp3.OkHttpClient
@@ -18,7 +18,7 @@ object RetrofitServiceProvider {
     private const val TRY_COUNT = 3
     private const val TRY_PAUSE_BETWEEN = 1000L
 
-    private var api: FlickrDataSource? = null
+    private var api: FlickrApi? = null
 
     private fun okHttpClient(): OkHttpClient =
         OkHttpClient.Builder().apply {
@@ -77,7 +77,7 @@ object RetrofitServiceProvider {
             .create()
     }
 
-    fun getService(): FlickrDataSource {
+    fun getService(): FlickrApi {
         if (api == null) {
             api = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(getGsonClient()))
@@ -85,7 +85,7 @@ object RetrofitServiceProvider {
                 .baseUrl(BuildConfig.BASE_URL)
                 .client(okHttpClient())
                 .build()
-                .create(FlickrDataSource::class.java)
+                .create(FlickrApi::class.java)
         }
 
         return api!!

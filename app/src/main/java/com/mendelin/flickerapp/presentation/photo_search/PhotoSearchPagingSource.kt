@@ -2,7 +2,7 @@ package com.mendelin.flickerapp.presentation.photo_search
 
 import androidx.paging.PagingState
 import androidx.paging.rxjava3.RxPagingSource
-import com.mendelin.flickerapp.data.repository.FlickrRepository
+import com.mendelin.flickerapp.data.repository.FlickrRepositoryImpl
 import com.mendelin.flickerapp.domain.models.PhotoItem
 import com.mendelin.flickerapp.domain.models.PhotosSearchResponse
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -11,7 +11,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import timber.log.Timber
 import javax.inject.Inject
 
-class PhotoSearchPagingSource @Inject constructor(private val tags: String, private val repository: FlickrRepository) : RxPagingSource<Int, PhotoItem>() {
+class PhotoSearchPagingSource @Inject constructor(private val tags: String, private val repository: FlickrRepositoryImpl) : RxPagingSource<Int, PhotoItem>() {
     override fun getRefreshKey(state: PagingState<Int, PhotoItem>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             state.closestPageToPosition(anchorPosition)?.prevKey?.plus(1)

@@ -9,14 +9,14 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.mendelin.flickerapp.BuildConfig
 import com.mendelin.flickerapp.base.BaseViewModel
-import com.mendelin.flickerapp.data.repository.FlickrRepository
+import com.mendelin.flickerapp.data.repository.FlickrRepositoryImpl
 import com.mendelin.flickerapp.domain.models.PhotoItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 @HiltViewModel
-class PhotoSearchViewModel @Inject constructor(private val repository: FlickrRepository) : BaseViewModel() {
+class PhotoSearchViewModel @Inject constructor(private val repository: FlickrRepositoryImpl) : BaseViewModel() {
     private var tags = MutableLiveData<String>("")
 
     fun setSearchTags(value: String) {

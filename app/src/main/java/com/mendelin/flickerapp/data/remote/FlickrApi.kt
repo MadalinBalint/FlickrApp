@@ -1,4 +1,4 @@
-package com.mendelin.flickerapp.data
+package com.mendelin.flickerapp.data.remote
 
 
 import com.mendelin.flickerapp.BuildConfig
@@ -7,7 +7,7 @@ import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface FlickrDataSource {
+interface FlickrApi {
     @GET(BuildConfig.BASE_URL)
     fun searchPhotos(
         @Query(BuildConfig.QUERY_TAGS) tags: String,
