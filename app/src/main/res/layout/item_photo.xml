@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class=".ItemPhotoBinding">
+
+        <import type="android.text.TextUtils" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="property"
+            type="com.mendelin.flickerapp.domain.models.PhotoItem" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/photoCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:clickable="true"
+        android:elevation="12dp"
+        android:focusable="true"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="12dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="1dp">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/card_background"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <!-- Photo title -->
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:includeFontPadding="false"
+                android:text="@{property.title}"
+                android:visibility="@{TextUtils.isEmpty(property.title) ? View.GONE : View.VISIBLE}"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                tools:text="Cat's in the cradle" />
+
+            <!-- Photo image -->
+            <ImageView
+                android:id="@+id/imgPoster"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:visibility="@{TextUtils.isEmpty(property.id) ? View.INVISIBLE : View.VISIBLE}"
+                app:imageUrl="@{@string/photo_url(property.server, property.id, property.secret)}"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>
