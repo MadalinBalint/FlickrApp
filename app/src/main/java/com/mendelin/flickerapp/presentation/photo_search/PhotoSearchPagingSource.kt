@@ -6,8 +6,9 @@ import com.mendelin.flickerapp.domain.model.FlickrPhoto
 import com.mendelin.flickerapp.domain.use_case.PhotoPagingDataUseCase
 import io.reactivex.rxjava3.core.Single
 import javax.inject.Inject
+import javax.inject.Named
 
-class PhotoSearchPagingSource @Inject constructor(private val tags: String, private val useCase: PhotoPagingDataUseCase) : RxPagingSource<Int, FlickrPhoto>() {
+class PhotoSearchPagingSource @Inject constructor(private val tags: String, @Named("PhotoPagingDataUseCase") private val useCase: PhotoPagingDataUseCase) : RxPagingSource<Int, FlickrPhoto>() {
     override fun getRefreshKey(state: PagingState<Int, FlickrPhoto>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             state.closestPageToPosition(anchorPosition)?.prevKey?.plus(1)

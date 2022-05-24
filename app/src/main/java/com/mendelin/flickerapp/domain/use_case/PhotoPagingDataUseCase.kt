@@ -10,8 +10,9 @@ import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers
 import timber.log.Timber
 import javax.inject.Inject
+import javax.inject.Named
 
-class PhotoPagingDataUseCase @Inject constructor(private val repository: FlickrRepository) {
+class PhotoPagingDataUseCase @Inject constructor(@Named("FlickrRepository") private val repository: FlickrRepository) {
     operator fun invoke(tags: String, currentPage: Int): Single<PagingSource.LoadResult<Int, FlickrPhoto>> =
         repository.searchPhotos(tags, currentPage)
             .subscribeOn(Schedulers.io())
