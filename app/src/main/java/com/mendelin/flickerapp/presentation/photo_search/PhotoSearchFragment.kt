@@ -10,7 +10,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.mendelin.flickerapp.R
-import com.mendelin.flickerapp.common.Utils.setUiState
 import com.mendelin.flickerapp.databinding.FragmentPhotoSearchBinding
 import com.mendelin.flickerapp.presentation.custom_view.MarginItemVerticalDecoration
 import dagger.hilt.android.AndroidEntryPoint

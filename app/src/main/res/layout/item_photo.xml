@@ -11,7 +11,7 @@
 
         <variable
             name="property"
-            type="com.mendelin.flickerapp.domain.models.PhotoItem" />
+            type="com.mendelin.flickerapp.data.dto.PhotoDto" />
 
     </data>
 
@@ -44,9 +44,9 @@
                 android:layout_marginBottom="8dp"
                 android:includeFontPadding="false"
                 android:text="@{property.title}"
-                android:visibility="@{TextUtils.isEmpty(property.title) ? View.GONE : View.VISIBLE}"
                 android:textColor="@color/black"
                 android:textSize="12sp"
+                android:visibility="@{TextUtils.isEmpty(property.title) ? View.GONE : View.VISIBLE}"
                 tools:text="Cat's in the cradle" />
 
             <!-- Photo image -->

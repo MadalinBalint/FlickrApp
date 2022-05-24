@@ -1,9 +1,9 @@
-package com.mendelin.flickerapp.domain.models
+package com.mendelin.flickerapp.data.dto
 
 import androidx.annotation.Keep
 
 @Keep
-data class PhotoItem(
+data class PhotoDto(
     val id: String,
     val owner: String,
     val secret: String,
