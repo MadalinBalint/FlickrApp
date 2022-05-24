@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import com.mendelin.flickerapp.BuildConfig
-import com.mendelin.flickerapp.data.dto.PhotoDto
+import com.mendelin.flickerapp.domain.model.FlickrPhoto
 import com.mendelin.flickerapp.domain.use_case.PhotoPagingDataUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
@@ -29,7 +29,7 @@ class PhotoSearchViewModel @Inject constructor(private val useCase: PhotoPagingD
         tags.postValue(value)
     }
 
-    fun getSearchResultsPagingData(tag: String): Flow<PagingData<PhotoDto>> {
+    fun getSearchResultsPagingData(tag: String): Flow<PagingData<FlickrPhoto>> {
         return Pager(
             config = PagingConfig(pageSize = BuildConfig.FLICKR_PER_PAGE),
             pagingSourceFactory = {

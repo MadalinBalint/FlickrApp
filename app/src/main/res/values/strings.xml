@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">FlickerApp</string>
 
-    <string name="photo_url">https://live.staticflickr.com/%s/%s_%s.jpg</string>
     <string name="query_hint">Search Flickr photos by tag</string>
 </resources>

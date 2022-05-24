@@ -6,22 +6,22 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mendelin.flickerapp.ItemPhotoBinding
-import com.mendelin.flickerapp.data.dto.PhotoDto
+import com.mendelin.flickerapp.domain.model.FlickrPhoto
 
-class PhotoSearchAdapter : PagingDataAdapter<PhotoDto, PhotoSearchAdapter.PhotoSearchViewHolder>(PhotoSearchDiffCallBack()) {
+class PhotoSearchAdapter : PagingDataAdapter<FlickrPhoto, PhotoSearchAdapter.PhotoSearchViewHolder>(PhotoSearchDiffCallBack()) {
     inner class PhotoSearchViewHolder(var binding: ItemPhotoBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(photo: PhotoDto) {
+        fun bind(photo: FlickrPhoto) {
             binding.property = photo
             binding.executePendingBindings()
         }
     }
 
-    class PhotoSearchDiffCallBack : DiffUtil.ItemCallback<PhotoDto>() {
-        override fun areItemsTheSame(oldItem: PhotoDto, newItem: PhotoDto): Boolean {
+    class PhotoSearchDiffCallBack : DiffUtil.ItemCallback<FlickrPhoto>() {
+        override fun areItemsTheSame(oldItem: FlickrPhoto, newItem: FlickrPhoto): Boolean {
             return oldItem.title == newItem.title
         }
 
-        override fun areContentsTheSame(oldItem: PhotoDto, newItem: PhotoDto): Boolean {
+        override fun areContentsTheSame(oldItem: FlickrPhoto, newItem: FlickrPhoto): Boolean {
             return oldItem == newItem
         }
     }

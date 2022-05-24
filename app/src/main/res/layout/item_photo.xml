@@ -11,7 +11,7 @@
 
         <variable
             name="property"
-            type="com.mendelin.flickerapp.data.dto.PhotoDto" />
+            type="com.mendelin.flickerapp.domain.model.FlickrPhoto" />
 
     </data>
 
@@ -56,8 +56,8 @@
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:visibility="@{TextUtils.isEmpty(property.id) ? View.INVISIBLE : View.VISIBLE}"
-                app:imageUrl="@{@string/photo_url(property.server, property.id, property.secret)}"
+                android:visibility="@{TextUtils.isEmpty(property.id) ? View.GONE : View.VISIBLE}"
+                app:imageUrl="@{property.url}"
                 tools:src="@tools:sample/backgrounds/scenic" />
 
         </LinearLayout>
