@@ -7,13 +7,13 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import com.mendelin.flickerapp.BuildConfig
 import com.mendelin.flickerapp.domain.model.FlickrPhoto
-import com.mendelin.flickerapp.domain.use_case.PhotoPagingDataUseCase
+import com.mendelin.flickerapp.domain.use_case.PhotoPagingDataUseCaseImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 @HiltViewModel
-class PhotoSearchViewModel @Inject constructor(private val useCase: PhotoPagingDataUseCase) : ViewModel() {
+class PhotoSearchViewModel @Inject constructor(private val useCase: PhotoPagingDataUseCaseImpl) : ViewModel() {
     private var tags = MutableLiveData<String>("")
     val error = MutableLiveData<String>()
     val isLoading = MutableLiveData(false)

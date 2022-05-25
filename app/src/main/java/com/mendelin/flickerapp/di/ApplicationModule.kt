@@ -8,6 +8,7 @@ import com.mendelin.flickerapp.data.remote.FlickrApi
 import com.mendelin.flickerapp.data.repository.FlickrRepositoryImpl
 import com.mendelin.flickerapp.domain.repository.FlickrRepository
 import com.mendelin.flickerapp.domain.use_case.PhotoPagingDataUseCase
+import com.mendelin.flickerapp.domain.use_case.PhotoPagingDataUseCaseImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -134,5 +135,5 @@ object ApplicationModule {
     @Singleton
     @Named("PhotoPagingDataUseCase")
     fun providePhotoPagingDataUseCase(@Named("FlickrRepository") repository: FlickrRepository): PhotoPagingDataUseCase =
-        PhotoPagingDataUseCase(repository)
+        PhotoPagingDataUseCaseImpl(repository)
 }
