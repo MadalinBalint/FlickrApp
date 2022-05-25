@@ -1,6 +1,7 @@
 package com.mendelin.flickerapp.data.dto
 
 import androidx.annotation.Keep
+import com.mendelin.flickerapp.domain.model.FlickrPhoto
 
 @Keep
 data class PhotoDto(
@@ -14,3 +15,6 @@ data class PhotoDto(
     val isfriend: Int,
     val isfamily: Int
 )
+
+fun PhotoDto.toFlickrPhoto(): FlickrPhoto =
+    FlickrPhoto(id, title, "https://live.staticflickr.com/${server}/${id}_${secret}.jpg")
