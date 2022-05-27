@@ -1,7 +1,5 @@
-package com.mendelin.flickerapp.data
+package com.mendelin.flickerapp.data.dto
 
-import com.mendelin.flickerapp.data.dto.PhotoDto
-import com.mendelin.flickerapp.data.dto.toFlickrPhoto
 import org.junit.Assert
 import org.junit.Test
 
